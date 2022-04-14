@@ -4,6 +4,17 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
-    "gulp": "^4.0.2"
+    "browser-sync": "^2.27.9",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
+    "gulp-uglify": "^3.0.2"
+  },
+  "dependencies": {
+    "compress-images": "^2.0.5",
+    "del": "^6.0.0",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "sass": "^1.50.0"
   }
 }
