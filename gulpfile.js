@@ -6,7 +6,7 @@ const browserSync = require('browser-sync').create()
 
 const concat = require('gulp-concat')
 
-const uglify = require('gulp-uglify').default
+const uglify = require('gulp-uglify-es').default
 
 const sass = require('gulp-sass')(require('sass'))
 
@@ -28,7 +28,7 @@ function browsersync() {
 
 function scripts() {
   return src([
-    'index.js',
+    'app/js/index.js',
   ])
     .pipe(concat('index.min.js'))
     .pipe(uglify())
@@ -38,11 +38,10 @@ function scripts() {
 
 function styles() {
   const prep = preprocessor == 'sass' ? 'scss' : preprocessor
-  return src([
-    'app/' + preprocessor + '/main.' + prep,
-    'app/' + preprocessor + '/main.' + preprocessor,
-  ])
-    .pipe(eval(preprocessor))
+  return src(
+    'app/' + preprocessor + '/index.' + prep + '',
+  )
+    .pipe(eval(preprocessor)())
     .pipe(concat('index.min.css'))
     .pipe(autoprefixer({ overrideBrowserlist: ['last 10 versions'], grid: true }))
     .pipe(cleancss({ level: { 1: { specialComments: 0 } }, /*format: 'beautify'*/ }))
@@ -61,6 +60,7 @@ async function images() {
     { gif: { engine: 'gifsicle', command: ['--colors', '64', '--use-col=web'] } },
     (err, completed) => {
       if (completed) browserSync.reload()
+      if (err) console.log(err)
     }
   )
 }
@@ -105,4 +105,4 @@ exports.cleanimg = cleanimg;
 
 exports.build = series(cleandist, styles, scripts, images, buildcopy)
 
-exports.default = parallel(styles, scripts, browsersync, startWatch)
+exports.default = parallel(styles, scripts, browsersync, images, startWatch)
