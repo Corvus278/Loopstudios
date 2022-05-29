@@ -1,0 +1,52 @@
+@import './variables.scss';
+
+// body {
+//   overflow-x: hidden;
+//   /*позицианируем чтобы исчез скролл*/
+//   max-width: 100vw;
+//   // height: 100%;
+//   /*что бы верстка не складывалась по ширине*/
+
+// }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+}
+
+button {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.container {
+  max-width: 1440px;
+  padding: 0 $container-pd;
+  margin: 0 auto;
+
+  @media screen and (max-width: $laptop) {
+    & {
+      padding: 0 $container-pd-laptop;
+    }
+  }
+
+  @media screen and (max-width: $tablet) {
+    padding: 0 $container-pd-mobile;
+  }
+}
+
+.caps {
+  text-transform: uppercase;
+}

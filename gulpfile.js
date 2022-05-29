@@ -28,7 +28,9 @@ function browsersync() {
 
 function scripts() {
   return src([
+    'app/data/data.js',
     'app/js/index.js',
+    'app/js/creationsFiller.js'
   ])
     .pipe(concat('index.min.js'))
     .pipe(uglify())
@@ -38,8 +40,9 @@ function scripts() {
 
 function styles() {
   const prep = preprocessor == 'sass' ? 'scss' : preprocessor
+
   return src(
-    'app/' + preprocessor + '/index.' + prep + '',
+    'app/' + preprocessor + '/index.' + prep,
   )
     .pipe(eval(preprocessor)())
     .pipe(concat('index.min.css'))
@@ -54,7 +57,7 @@ async function images() {
     'app/images/src/**/*',
     'app/images/dest/',
     { compress_force: false, statistic: true, autoupdate: true }, false,
-    { jpg: { engine: 'mozjpeg', command: ['-quality', '75'] } },
+    { jpg: { engine: 'mozjpeg', command: ['-quality', '100'] } },
     { png: { enjine: 'pngquant', command: ['--quality=75-100', '-o'] } },
     { svg: { engine: 'svgo', command: '--multipass' } },
     { gif: { engine: 'gifsicle', command: ['--colors', '64', '--use-col=web'] } },
