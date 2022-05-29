@@ -18,6 +18,16 @@ h6 {
   font-family: "Josefin Sans", 'sans-serif';
 }
 
+.section-title {
+  font-size: 48px;
+  font-weight: 300;
+  line-height: 1em;
+
+  @media screen and (max-width: $big-mobile) {
+    font-size: 32px;
+  }
+}
+
 .header {
   display: flex;
   flex-wrap: nowrap;
@@ -259,14 +269,9 @@ h6 {
   &__title {
     width: 100%;
     margin-bottom: 25px;
-    font-family: 'Josefin Sans';
-    font-size: 48px;
-    line-height: 1em;
-    font-weight: 300;
 
     @media screen and (max-width: $tablet) {
       margin-bottom: 16px;
-      font-size: 32px;
     }
   }
 
@@ -290,6 +295,7 @@ h6 {
 }
 
 .our-creations {
+  padding-top: 92px;
   padding-bottom: 184px;
 
   &__header {
@@ -302,12 +308,6 @@ h6 {
       justify-content: center;
       margin-bottom: 48px;
     }
-  }
-
-  &__title {
-    font-size: 48px;
-    font-weight: 300;
-    line-height: 1em;
   }
 
   &__all-btn {
@@ -342,6 +342,7 @@ h6 {
   }
 
   @media screen and (max-width: $tablet) {
+    padding-top: 48px;
     padding-bottom: 96px;
   }
 }
