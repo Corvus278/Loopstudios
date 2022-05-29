@@ -9,6 +9,15 @@ body {
   font-family: Alata;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Josefin Sans", 'sans-serif';
+}
+
 .header {
   display: flex;
   flex-wrap: nowrap;
@@ -161,7 +170,7 @@ body {
 .hero {
   padding-top: 64px;
   padding-bottom: 146px;
-  background: url(/images/dest/hero.jpg) no-repeat;
+  background: url("../images/dest/hero.jpg") no-repeat;
   background-size: cover;
   background-position-x: center;
 
@@ -188,7 +197,7 @@ body {
   }
 
   @media screen and (max-width: $big-mobile) {
-    background-image: url(/images/dest/hero-mobile.jpg);
+    background-image: url("../images/dest/hero-mobile.jpg");
   }
 }
 
